@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Autores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="p-16">
+    <div class="flex mb-5 items-center justify-between	">
+        <h1 class="text-3xl font-bold">
+            Autores
+        </h1>
+
+        <a th:href="@{'/add-author'}"
+            class="flex gap-x-1 inline-flex items-center rounded-md bg-white p-2 text-md font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+
+            Añadir
+        </a>
+    </div>
+
+    <div th:if="${#lists.isEmpty(authors)}">
+        <p>No hay autores añadidos</p>
+    </div>
+
+    <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+        th:unless="${#lists.isEmpty(authors)}">
+        <a th:href="@{'/detailed-author/' + ${autor.id}}" th:each="author : ${authors}">
+            <div
+                class="h-full w-full flex gap-x-1 rounded-md bg-white p-5 shadow-sm ring-1 ring-inset ring-gray-200 hover:bg-gray-50">
+                <div class="flex gap-x-4 items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                      </svg>
+                    <div>
+                        <p class="text-md font-semibold leading-6 text-gray-900" th:text="${autor.name}"></p>
+                        <p class="text-sm font-regular leading-5 text-gray-500"
+                            th:text="' $' + ${autor.price}"></p>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+    </div>
+</body>
+
+</html>
