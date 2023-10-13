@@ -1,18 +1,15 @@
 package com.compunet.bookstore;
 
+import com.compunet.bookstore.persistence.models.Autor;
 import com.compunet.bookstore.persistence.models.Book;
 import com.compunet.bookstore.services.IBookService;
+import com.compunet.bookstore.services.impl.AutorService;
 import com.compunet.bookstore.services.impl.BookService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,14 +22,29 @@ public class    BookstoreApplication {
 
         ConfigurableApplicationContext context = SpringApplication.run(BookstoreApplication.class, args);
         IBookService service = context.getBean("bookService", BookService.class);
+        AutorService service1 = context.getBean("autorService", AutorService.class);
 
         String sDate1="31/12/1998";
         Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
 
+        Autor autor1 = new Autor(1L,"Gabriel Garcia Marquez", "Colombiano");
+
+        Autor autor2 = new Autor(2L,"Arthur Conan Doyle", "Britanico");
+
+
+        service1.createAutor(autor1);
+        service1.createAutor(autor2);
+
+
+
         // burned models
-        service.save(new Book("To Kill a Mockingbird", date1, "Harper Lee"));
-        service.save(new Book( "1984", date1, "George Orwell"));
-        service.save(new Book( "The Great Gatsby", date1, "F. Scott Fitzgerald"));
+        Book book1 = new Book(1L,"Sherlock Holmes", date1, autor2);
+        Book book2 = new Book( 2L,"1984", date1, autor1);
+        Book book3 = new Book(3L,"The Great Gatsby", date1, autor1);
+        service.save(book1);
+        service.save(book2);
+        service.save(book3);
+
 
     }
 
