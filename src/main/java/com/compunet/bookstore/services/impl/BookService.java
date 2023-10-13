@@ -30,8 +30,8 @@ public class BookService implements IBookService {
     }
 
     @Override
-    public Book save(Book book) {
-        return bookRepository.save(book);
+    public void save(Book book) {
+        bookRepository.save(book);
     }
 
     @Override
@@ -40,8 +40,8 @@ public class BookService implements IBookService {
     }
 
     @Override
-    public Book edit(Book book){
-        return bookRepository.edit(book);
+    public void edit(Book book){
+        bookRepository.edit(book);
     }
     @Override
     public void sort(){
