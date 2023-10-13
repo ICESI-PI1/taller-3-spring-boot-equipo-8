@@ -1,11 +1,6 @@
 package com.compunet.bookstore.persistence.models;
 
-<<<<<<< HEAD
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
-=======
 import org.springframework.stereotype.Component;
->>>>>>> b4d605f35f1a1b5f097a3a1fd9d668fd60710e67
 
 import java.util.Date;
 

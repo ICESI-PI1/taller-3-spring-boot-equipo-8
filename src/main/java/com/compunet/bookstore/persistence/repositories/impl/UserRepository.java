@@ -26,12 +26,6 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public void sort(){
-        Comparator<User> idComparator = Comparator.comparingLong(User::getId);
-        users.sort(idComparator);
-    }
-
-    @Override
     public User matchCredentials(User user) {
         return users.stream().filter(u -> u.getUsername().equals(user.getUsername()) && u.getPassword().equals(user.getPassword())).findFirst().orElse(null);
     }

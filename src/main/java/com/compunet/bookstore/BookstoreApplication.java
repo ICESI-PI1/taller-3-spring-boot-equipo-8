@@ -5,6 +5,8 @@ import com.compunet.bookstore.persistence.models.Book;
 import com.compunet.bookstore.services.IBookService;
 import com.compunet.bookstore.services.impl.AutorService;
 import com.compunet.bookstore.services.impl.BookService;
+import com.compunet.bookstore.services.impl.UserService;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,7 +22,8 @@ public class    BookstoreApplication {
 
         ConfigurableApplicationContext context = SpringApplication.run(BookstoreApplication.class, args);
         IBookService service = context.getBean("bookService", BookService.class);
-        AutorService service1 = context.getBean("autorService", AutorService.class);
+        AutorService authorService = context.getBean("autorService", AutorService.class);
+        UserService userService = context.getBean("userService", UserService.class);
 
         String sDate1="31/12/1998";
         Date date1=new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
@@ -30,8 +33,8 @@ public class    BookstoreApplication {
         Autor autor2 = new Autor(2L,"Arthur Conan Doyle", "Britanico");
 
 
-        service1.createAutor(autor1);
-        service1.createAutor(autor2);
+        authorService.createAutor(autor1);
+        authorService.createAutor(autor2);
 
 
 

@@ -12,15 +12,17 @@ public class BookRepository implements IBookRepository {
     List<Book> books = new ArrayList<>();
 
     @Override
-    public void save(Book book) {
-
-            books.add(book);
+    public Book save(Book book) {
+        books.add(book);
+        return book;
     }
+    
     @Override
-    public void edit(Book book){
+    public Book edit(Book book){
         Book existingBook = findById(book.getId()).orElse(null);
         books.remove(existingBook);
         books.add(book);
+        return existingBook;
     }
 
     @Override

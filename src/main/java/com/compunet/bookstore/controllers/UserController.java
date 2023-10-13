@@ -15,10 +15,14 @@ import jakarta.annotation.PostConstruct;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/user")
+@CrossOrigin(origins = "*")
 public class UserController {
-    @Autowired
     private JwtGenerator jwtGenerator;
+
+    @Autowired
+    public UserController(JwtGenerator generator) {
+        this.jwtGenerator = generator;
+    }
 
     @Autowired
     private IUserService userService;
@@ -41,9 +45,10 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody User user) {
+        System.out.println("EPA LA AREPA");
         try {
             User userData = userService.login(user);
-
+            System.out.println("FOUND :" + userData);
             if(userData == null){
                 throw new UsernameNotFoundException("Credenciales incorrectas");
             }

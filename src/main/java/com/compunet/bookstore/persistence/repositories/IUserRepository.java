@@ -8,5 +8,4 @@ public interface IUserRepository {
     User save(User user);
     List<User> getAll();
     User matchCredentials(User user);
-    void sort();
 }
