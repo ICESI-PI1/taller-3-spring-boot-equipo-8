@@ -2,17 +2,8 @@ package com.compunet.bookstore.persistence.models;
 
 import org.springframework.stereotype.Component;
 
-<<<<<<< HEAD
-@Data
-@RequiredArgsConstructor
-=======
-import java.util.Date;
-
 @Component
->>>>>>> b4d605f35f1a1b5f097a3a1fd9d668fd60710e67
 public class Autor {
-
-
     private Long id;
     private String name;
     private String nationality;

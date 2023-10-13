@@ -42,8 +42,5 @@ public class    BookstoreApplication {
         service.save(book1);
         service.save(book2);
         service.save(book3);
-
-
     }
-
 }
