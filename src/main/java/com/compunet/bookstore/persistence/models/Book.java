@@ -1,6 +1,5 @@
 package com.compunet.bookstore.persistence.models;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 

@@ -11,12 +11,6 @@ import java.util.Optional;
 
 @Service
 public class BookService implements IBookService {
-
-    /* Esta vez se puede usar autowired, no es necesario usar un setter.
-    * Spring va a inyectar un bean de tipo IBookRepository automaticamente
-    * Eso se puede observar en el log 'BEANS BUILT': Hay un BookRepository que
-    * fue creado por Spring (por la anotacion @Repository). El frameork busca entre los beans
-    * si hay alguno que pueda asignar a IBookRepository y al encontrarlo lo asigna aca */
     @Autowired
     private IBookRepository bookRepository;
 

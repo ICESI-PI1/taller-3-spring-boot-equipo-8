@@ -7,7 +7,6 @@ import java.util.Optional;
 
 public interface IBookRepository {
     Book save(Book book);
-
     Book edit(Book book);
 
     List<Book> getAll();

@@ -3,8 +3,6 @@ package com.compunet.bookstore.persistence.models;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @RequiredArgsConstructor
 public class Autor {
