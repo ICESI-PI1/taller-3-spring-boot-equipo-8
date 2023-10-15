@@ -18,7 +18,6 @@ public class    BookstoreApplication {
     // private static final Logger log = LoggerFactory.getLogger(BookstoreApplication.class);
 
     public static void main(String[] args) throws ParseException {
-
         ConfigurableApplicationContext context = SpringApplication.run(BookstoreApplication.class, args);
         IBookService service = context.getBean("bookService", BookService.class);
         AutorService authorService = context.getBean("autorService", AutorService.class);
